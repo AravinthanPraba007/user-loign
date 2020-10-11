@@ -1,14 +1,18 @@
 import React, { useRef, useState } from 'react'
 import { Card, Button, Form, Alert} from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from "react-router-dom"
+import { useAuth } from "../Contexts/AuthContext"
 
 export default function Signup() {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
     const [error, setError] = useState('')
-
-    function handleSubmit(e) {
+    const [loading, setLoading] = useState(false)
+    const history = useHistory()
+    const { signup } = useAuth()
+    
+    async function handleSubmit(e) {
         e.preventDefault()
 
         if(passwordRef.current.value !== passwordConfirmRef.current.value) {
@@ -17,7 +21,16 @@ export default function Signup() {
 
         
         //Call the sign up api
-        setError("")
+        try {
+            setError("")
+            setLoading(true)
+            await signup(emailRef.current.value, passwordRef.current.value)
+            history.push("/")
+          } catch {
+            setError("Failed to create an account")
+          }
+      
+          setLoading(false)
     }
 
     return (
@@ -39,7 +52,7 @@ export default function Signup() {
                      <Form.Label>Password Confirmation</Form.Label>
                      <Form.Control type="password" ref={passwordConfirmRef} required/>
                  </Form.Group>
-                 <Button className="w-100" type="submit">Sign Up</Button>
+                 <Button  disabled={loading} className="w-100" type="submit">Sign Up</Button>
              </Form>
              </Card.Body>
          </Card>
