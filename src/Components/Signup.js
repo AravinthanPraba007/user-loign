@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { Card, Button, Form, Alert} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 export default function Signup() {
     const emailRef = useRef()
@@ -43,7 +44,7 @@ export default function Signup() {
              </Card.Body>
          </Card>
          <div className="w-100 text-center mt-2">
-            Already have a account? Log In
+            Already have a account? <Link to="/login">Log In</Link>
          </div>   
         </>
     )
