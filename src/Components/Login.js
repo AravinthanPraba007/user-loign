@@ -13,7 +13,6 @@ export default function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-
     try {
       setError("")
       setLoading(true)
@@ -22,7 +21,6 @@ export default function Login() {
     } catch {
       setError("Failed to log in")
     }
-
     setLoading(false)
   }
 
