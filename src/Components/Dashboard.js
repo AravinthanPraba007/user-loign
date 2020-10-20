@@ -4,6 +4,8 @@ import { useAuth } from "../Contexts/AuthContext"
 import { useHistory } from "react-router-dom"
 import ItemsContainer from "./ItemList Component/ItemsContainer";
 import CardContainer from "./Card Component/CardContainer";
+import ItemsContainerRedux from "./ItemList Component/ItemContainerRedux";
+import CardContainerRedux from "./Card Component/CardContainerRedux";
 
 export default function Dashboard() {
 
@@ -37,6 +39,9 @@ export default function Dashboard() {
             </div>
             <ItemsContainer />
             <CardContainer />
+
+            <ItemsContainerRedux/>
+            <CardContainerRedux/>
 
         </div>
     )

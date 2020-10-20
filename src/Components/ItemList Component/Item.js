@@ -11,8 +11,11 @@ export default function Item({ item }) {
 
     return (
         <div className=" row mb-2 mx-auto">
-            <div className="col-9">
+            <div className="col-4">
                 <Form.Control type="text" readOnly defaultValue={item.name} />
+            </div>
+            <div className="col-4">
+                <Form.Control type="text" readOnly defaultValue={item.age} />
             </div>
             <div className="col-3">
                 <Button variant="warning" onClick={handleDeleteItem}>Delete</Button>

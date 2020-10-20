@@ -28,7 +28,7 @@ export function AuthProvider({ children }) {
 
   function addItem(newItem) {
     setItems(prevItems => {
-      return [...prevItems, { id: uuidv4(), name: newItem }]
+      return [...prevItems, { id: uuidv4(), name: newItem[0], age: newItem[1] }]
     })
   }
 

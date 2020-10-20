@@ -2,16 +2,25 @@ import React, { useRef } from "react"
 import { Card, Button, Form } from "react-bootstrap"
 import ItemList from "./ItemList";
 import { useAuth } from "../../Contexts/AuthContext"
+
 export default function ItemsContainer() {
-    const itemInputRef = useRef()
+    const  nameInputRef  = useRef()
+    const  ageInputRef  = useRef()
     const { addItem } = useAuth()
 
     function handleAddItem() {
-        const newItem = itemInputRef.current.value
+        const newItem =[]
+        newItem[0]= nameInputRef.current.value
+        newItem[1]= ageInputRef.current.value
+        console.log(newItem)
         if (newItem === '') return
         addItem(newItem)
-        itemInputRef.current.value = null
+        nameInputRef.current.value = null
+        ageInputRef.current.value = null
+
     }
+
+
 
     return (
         <div>
@@ -22,8 +31,11 @@ export default function ItemsContainer() {
                         <ItemList />
                     </div>
                     <div className="row my-2">
-                        <div className="col-9">
-                            <Form.Control ref={itemInputRef} type="text" placeholder="Enter your data" />
+                        <div className="col-4">
+                            <Form.Control ref={nameInputRef} type="text" placeholder="Enter your Name" />
+                        </div> 
+                        <div className ="col-4">   
+                            <Form.Control ref={ageInputRef} type ="number" placeholder="Enter your Age" />
                         </div>
                         <div className="col-3">
                             <Button variant="success" onClick={handleAddItem}>Add</Button>
