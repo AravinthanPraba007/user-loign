@@ -6,8 +6,10 @@ import ItemsContainer from "./ItemList Component/ItemsContainer";
 import CardContainer from "./Card Component/CardContainer";
 import ItemsContainerRedux from "./ItemList Component/ItemContainerRedux";
 import CardContainerRedux from "./Card Component/CardContainerRedux";
+import { connect } from 'react-redux'
+import { resetItems } from '../Actions'
 
-export default function Dashboard() {
+function Dashboard({ resetItem }) {
 
     const [error, setError] = useState("")
     const { logout } = useAuth()
@@ -15,7 +17,7 @@ export default function Dashboard() {
 
     async function handleLogout() {
         setError("")
-
+        resetItem()
         try {
             await logout()
             history.push("/login")
@@ -40,9 +42,23 @@ export default function Dashboard() {
             <ItemsContainer />
             <CardContainer />
 
-            <ItemsContainerRedux/>
-            <CardContainerRedux/>
+            <ItemsContainerRedux />
+            <CardContainerRedux />
 
         </div>
     )
 }
+
+
+const mapDispatchToProps = dispatch => {
+    return {
+        resetItem: () => dispatch(resetItems())
+    }
+}
+
+
+export default connect(
+    null,
+    mapDispatchToProps
+)
+    (Dashboard)

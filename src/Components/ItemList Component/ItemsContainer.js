@@ -31,13 +31,13 @@ export default function ItemsContainer() {
                         <ItemList />
                     </div>
                     <div className="row my-2">
-                        <div className="col-4">
-                            <Form.Control ref={nameInputRef} type="text" placeholder="Enter your Name" />
+                        <div className="col-5">
+                            <Form.Control ref={nameInputRef} type="text" placeholder="Enter Name" />
                         </div> 
                         <div className ="col-4">   
-                            <Form.Control ref={ageInputRef} type ="number" placeholder="Enter your Age" />
+                            <Form.Control ref={ageInputRef} type ="number" placeholder="Age" />
                         </div>
-                        <div className="col-3">
+                        <div className="col-2">
                             <Button variant="success" onClick={handleAddItem}>Add</Button>
                         </div>
                     </div>

@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
     items: [],
@@ -11,7 +10,7 @@ const itemReducer = (state = initialState, action) => {
         case 'ADD_ITEM': {
             // console.log("Add Item Reducer running")
             return Object.assign({}, state, {
-                items: state.items.concat({ id: uuidv4(), name: action.payload.name, age: action.payload.age })
+                items: state.items.concat({ id: action.payload.id, name: action.payload.name, age: action.payload.age })
             })
         }
         case 'DELETE_ITEM': {
@@ -37,6 +36,21 @@ const itemReducer = (state = initialState, action) => {
             return state
 
         }
+
+        case 'RESET': {
+            return initialState
+        }
+
+        case 'EDIT_ITEM': {
+            let items = state.items
+            var index = items.map(function (obj) { return obj.id; }).indexOf(action.payload.id)
+            return Object.assign({}, state, {
+
+                items: [...state.items.slice(0, index), { id: action.payload.id, name: action.payload.name, age: action.payload.age },
+                ...state.items.slice(index + 1)]
+            })
+        }
+
         default:
             return state
     }

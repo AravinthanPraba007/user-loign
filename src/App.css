@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.formLabel {
+  font-size: 18px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+}

@@ -1,0 +1,35 @@
+{
+    "items": [
+      {
+        "id": "321bb675-19b9-4ada-a36f-9efda47d703e",
+        "name": "Sam",
+        "age": "21"
+      },
+      {
+        "id": "02cc85bb-da91-4e6c-bdab-a8436066f72c",
+        "name": "Ram ",
+        "age": "24"
+      },
+      {
+        "id": "2393328f-8eef-4115-9b3f-0938c16f1000",
+        "name": "Suresh",
+        "age": "32"
+      },
+      {
+        "id": "253ddf90-2f85-47a1-9344-b32836c13f70",
+        "name": "Ravi",
+        "age": "29"
+      },
+      {
+        "id": "b517375a-7599-4781-8a4f-84b3fc0d5169",
+        "name": "Abi",
+        "age": "26"
+      },
+      {
+        "id": "273582fa-2d79-49c0-9bb3-b0a481f2585a",
+        "name": "Arun",
+        "age": "25"
+      }
+    ],
+    "cardItems": []
+  }
